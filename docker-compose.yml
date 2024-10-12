@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      - SSH_AUTH_SOCK=/ssh-agent
+    volumes:
+      - .:/rails
+      - gems:/gems
+      - $SSH_AUTH_SOCK:/ssh-agent
+
+volumes:
+  gems:
