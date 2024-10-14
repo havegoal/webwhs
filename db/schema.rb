@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_10_14_080000) do
+ActiveRecord::Schema[8.0].define(version: 2024_10_14_163244) do
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,5 +27,16 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_14_080000) do
     t.index ["name"], name: "index_api_keys_on_name", unique: true
   end
 
+  create_table "webhooks", force: :cascade do |t|
+    t.integer "account_id", null: false
+    t.string "name"
+    t.string "url"
+    t.integer "request_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_webhooks_on_account_id"
+  end
+
   add_foreign_key "api_keys", "accounts"
+  add_foreign_key "webhooks", "accounts"
 end

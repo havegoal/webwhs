@@ -1,0 +1,8 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+default:
+  account: default
+  name: Sample
+  url: http://local.host
+  request_method: post
+
