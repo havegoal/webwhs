@@ -29,9 +29,9 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_14_163244) do
 
   create_table "webhooks", force: :cascade do |t|
     t.integer "account_id", null: false
-    t.string "name"
-    t.string "url"
-    t.integer "request_method"
+    t.string "name", null: false
+    t.string "url", null: false
+    t.integer "request_method", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_webhooks_on_account_id"
