@@ -20,7 +20,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_14_163244) do
     t.integer "account_id", null: false
     t.string "name", null: false
     t.string "comment"
-    t.string "value", limit: 512, null: false
+    t.string "token", limit: 512, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_api_keys_on_account_id"

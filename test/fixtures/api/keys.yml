@@ -4,4 +4,4 @@ default:
   account: default
   name: DEFAULT
   comment: A default API Key
-  value: RANDOM_STRING_32_BYTES_IN_LENGTH
+  token: RANDOM_STRING_32_BYTES_IN_LENGTH
