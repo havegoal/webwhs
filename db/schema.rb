@@ -11,12 +11,21 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2024_10_14_080000) do
+  create_table "accounts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "api_keys", force: :cascade do |t|
+    t.integer "account_id", null: false
     t.string "name", null: false
     t.string "comment"
     t.string "value", limit: 512, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_api_keys_on_account_id"
     t.index ["name"], name: "index_api_keys_on_name", unique: true
   end
+
+  add_foreign_key "api_keys", "accounts"
 end
