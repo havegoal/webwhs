@@ -6,10 +6,16 @@ class Api::V1::AbstractController < ActionController::API
   private
 
   def authenticate
-    if api_key = authenticate_with_http_token { |token, _options| Api::Key.find_by(token:) }
-      @current_account = api_key.account
-    else
-      render json: { error: "Unauthorized", result: false }, status: :unauthorized
-    end
+    @api_key = authenticate_with_http_token { |token, _options| Api::Key.find_by(token:) }
+
+    render(json: { errors: [ "Unauthorized" ], result: false }, status: :unauthorized) if @api_key.nil?
+  end
+
+  def current_account
+    current_api_key.account
+  end
+
+  def current_api_key
+    @api_key
   end
 end
