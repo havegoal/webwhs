@@ -2,16 +2,10 @@ version: "3.8"
 
 services:
   app:
-    build:
-      context: .
+    image: vickodin/webwhs
     ports:
-      - "127.0.0.1:3000:3000"
-    environment:
-      - SSH_AUTH_SOCK=/ssh-agent
+      - "127.0.0.1:3001:80"
     volumes:
-      - .:/rails
-      - gems:/gems
-      - $SSH_AUTH_SOCK:/ssh-agent
-
-volumes:
-  gems:
+      - ./storage/:/rails/storage
+    env_file:
+      - .env
