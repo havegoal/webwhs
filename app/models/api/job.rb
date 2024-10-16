@@ -3,8 +3,6 @@ class Api::Job < ApplicationRecord
 
   delegate :account, to: :api_key
 
-  store :request, accessors: [ :domain, :webhooks ], coder: JSON, prefix: true
-
   # enum :kind, whois: 1
 
   # serialize :request,   type: Hash

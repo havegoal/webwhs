@@ -76,4 +76,8 @@ gem "state_machines-activerecord", "~> 0.9.0"
 # - https://github.com/okuramasafumi/alba/tree/main/benchmark
 # - https://panko.dev/docs/performance/
 
-gem "panko_serializer", "~> 0.8.2"
+# TODO: Find the issue (see Api::V1::WhoisController#show for details) and use panko
+# gem "panko_serializer", "~> 0.8.2"
+
+# NOTE: As a temporary option instead of panko
+gem 'jserializer'

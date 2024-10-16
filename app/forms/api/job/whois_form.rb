@@ -1,17 +1,18 @@
 class Api::Job::WhoisForm < Api::Job::Whois
   include ActiveFormModel
 
-  permit :domain, webhooks: []
+  permit :domain, webhook_ids: []
 
   validates :domain, presence: true
 
   def domain=(value)
-    self.request_domain = value&.strip&.downcase
+    super(value&.strip&.downcase)
   end
 
-  def webhooks=(ids)
+  def webhook_ids=(ids)
     return if ids.blank?
 
-    self.request_webhooks = ids.map { |id| account.webhooks.find(id).pluck(:id) }
+    ids = ids.map { |id| account.webhooks.select(:id).find(id).id }
+    super(ids)
   end
 end
