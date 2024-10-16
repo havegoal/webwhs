@@ -81,4 +81,4 @@ gem "state_machines-activerecord", "~> 0.9.0"
 # gem "panko_serializer", "~> 0.8.2"
 
 # NOTE: As a temporary option instead of panko
-gem 'jserializer'
+gem "jserializer"
