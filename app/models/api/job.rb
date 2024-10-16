@@ -3,11 +3,6 @@ class Api::Job < ApplicationRecord
 
   delegate :account, to: :api_key
 
-  # enum :kind, whois: 1
-
-  # serialize :request,   type: Hash
-  # serialize :response,  type: Hash
-
   state_machine :state, initial: :queue do
     state :queue,       value: 0
     state :processing,  value: 1
