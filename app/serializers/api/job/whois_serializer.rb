@@ -1,7 +1,6 @@
 
 class Api::Job::WhoisSerializer < Jserializer::Base
   attributes :id, :state, :domain, :registered, :free, :registered_at, :expires_at
-  # attributes :id, :domain
 
   def domain
     object.domain
@@ -16,7 +15,7 @@ class Api::Job::WhoisSerializer < Jserializer::Base
   end
 
   def free
-    object.response_free
+    !registered
   end
 
   def registered_at

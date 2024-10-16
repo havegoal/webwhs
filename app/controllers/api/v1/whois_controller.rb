@@ -14,6 +14,8 @@ class Api::V1::WhoisController < Api::V1::AbstractController
 
     job.save!
 
+    WhoisJob.perform_later(job.id)
+
     render json: Api::Job::WhoisSerializer.new(job, only: [ :id, :state, :domain ])
   end
 
