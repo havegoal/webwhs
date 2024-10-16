@@ -4,7 +4,7 @@ class CreateWebhooks < ActiveRecord::Migration[8.0]
       t.references :account, null: false, foreign_key: true
       t.string :name, null: false
       t.string :url, null: false
-      t.integer :request_method, null: false
+      t.string :request_method, null: false
 
       t.timestamps
     end

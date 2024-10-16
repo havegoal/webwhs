@@ -63,7 +63,22 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "mocha"
 end
 
 gem "whois", "~> 6.0"
 gem "whois-parser", "~> 2.0"
+
+gem "active_form_model", "~> 0.5.1"
+gem "state_machines-activerecord", "~> 0.9.0"
+
+# NOTE: Why panko?
+# See:
+# - https://github.com/okuramasafumi/alba/tree/main/benchmark
+# - https://panko.dev/docs/performance/
+
+# TODO: Find the issue (see Api::V1::WhoisController#show for details) and use panko
+# gem "panko_serializer", "~> 0.8.2"
+
+# NOTE: As a temporary option instead of panko
+gem "jserializer"

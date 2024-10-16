@@ -10,17 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_10_14_163244) do
+ActiveRecord::Schema[8.0].define(version: 2024_10_15_095535) do
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "api_jobs", force: :cascade do |t|
+    t.integer "api_key_id", null: false
+    t.string "type", null: false
+    t.integer "state", null: false
+    t.text "request"
+    t.text "response"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["api_key_id"], name: "index_api_jobs_on_api_key_id"
   end
 
   create_table "api_keys", force: :cascade do |t|
     t.integer "account_id", null: false
     t.string "name", null: false
     t.string "comment"
-    t.string "value", limit: 512, null: false
+    t.string "token", limit: 512, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_api_keys_on_account_id"
@@ -31,12 +42,13 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_14_163244) do
     t.integer "account_id", null: false
     t.string "name", null: false
     t.string "url", null: false
-    t.integer "request_method", null: false
+    t.string "request_method", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_webhooks_on_account_id"
   end
 
+  add_foreign_key "api_jobs", "api_keys"
   add_foreign_key "api_keys", "accounts"
   add_foreign_key "webhooks", "accounts"
 end

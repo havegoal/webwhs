@@ -1,0 +1,8 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+default_whois:
+  api_key: default_api_key
+  type: Api::Job::Whois
+  state: <%= Api::Job.state_machine.states[:queue].value %>
+  request: |
+    {"domain": "example.com"}
