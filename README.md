@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A project to assist those who develop websites and web applications, provide customer support, handle technical support, and promote online resources.
 
-Things you may want to cover:
+## Roadmap
 
-* Ruby version
+- [x] Whois API: Ability to get domain registration availability, it's registration and expiration dates
+- [ ] Domain global rating API. Tranco ranking, as a research-oriented top sites ranking hardened against manipulation
+- [ ] OpenAPI Specification
+- [ ] Fast setup and easy self-hosting
+- [ ] HTML structure checker (meta-tags, headers)
 
-* System dependencies
+...
 
-* Configuration
+## Built with
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Ruby: 3.3.5
+- Rails: 8.0.0.beta1
+- SQLite3
+- Solid Queue
