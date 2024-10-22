@@ -6,6 +6,7 @@ A project to assist those who develop websites and web applications, provide cus
 
 - [x] Whois API: Ability to get domain registration availability, it's registration and expiration dates
 - [ ] Domain global rating API. Tranco ranking, as a research-oriented top sites ranking hardened against manipulation
+- [ ] OpenAPI Specification
 - [ ] Fast setup and easy self-hosting
 - [ ] HTML structure checker (meta-tags, headers)
 
